@@ -6,6 +6,8 @@ import uuid
 from datetime import datetime
 
 
+format_datetime_encoding = "%Y-%m-%dT%H:%M:%S.%f"
+
 class BaseModel:
 
     def __init__(self):
@@ -20,7 +22,6 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        format_datetime_encoding = "%Y-%m-%dT%H:%M:%S.%f"
         self.__dict__["__class__"] = self.__class__.__name__
         self.__dict__["created_at"] = self.created_at.strftime(
             format_datetime_encoding

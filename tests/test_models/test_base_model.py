@@ -1,5 +1,5 @@
 import unittest
-from models.base_model import BaseModel
+from models.base_model import BaseModel, format_datetime_encoding
 
 
 class TestBaseModel(unittest.TestCase):
@@ -19,4 +19,14 @@ class TestBaseModel(unittest.TestCase):
         updated_at = self.base.updated_at
         self.base.save() 
         self.assertNotEqual(self.base.updated_at, updated_at)
-        
+
+
+    def test_to_dict(self):
+        created_at = self.base.created_at
+        self.base.to_dict()
+        self.assertEqual(
+            self.base.__dict__["created_at"], created_at.strftime(
+                format_datetime_encoding
+            )
+                        )
+        self.assertEqual(self.base.__dict__["__class__"], "BaseModel")
