@@ -5,8 +5,8 @@
 import uuid
 from datetime import datetime
 
-
 format_datetime_encoding = "%Y-%m-%dT%H:%M:%S.%f"
+
 
 class BaseModel:
 
