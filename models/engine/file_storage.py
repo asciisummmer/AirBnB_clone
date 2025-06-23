@@ -15,7 +15,7 @@ class FileStorage:
         obj_dict = obj.to_dict()
         obj_class = obj_dict["__class__"]
         obj_id = obj_dict["id"]
-        FileStorage.__objects[f"{obj_id}.{obj_class}"] = obj_dict
+        FileStorage.__objects[f"{obj_class}.{obj_id}"] = obj_dict
 
     def save(self):
         if FileStorage.__file_path.strip() != "":
