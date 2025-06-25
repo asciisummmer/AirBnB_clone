@@ -31,5 +31,5 @@ class FileStorage:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
                 objects_dict = json.load(file)
 
-        for key, value in objects_dict.items():
-            FileStorage.__objects[key] = BaseModel(**value)
+            for key, value in objects_dict.items():
+                FileStorage.__objects[key] = BaseModel(**value)
