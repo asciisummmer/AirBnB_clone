@@ -2,8 +2,8 @@
 
 import json
 import os
-#from models.base_model import BaseModel
 from ..base_model import BaseModel
+
 
 class FileStorage:
     __file_path: str = "file.json"
@@ -24,8 +24,6 @@ class FileStorage:
             for key in FileStorage.__objects:
                 objects_dict[key] = FileStorage.__objects[key].to_dict()
             with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
-                #for key in FileStorage.__objects:
-                #    json.dump(FileStorage.__objects[key].to_dict(), file)
                 json.dump(objects_dict, file)
 
     def reload(self):
